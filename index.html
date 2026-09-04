@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 25.8.3.2 (Windows)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-size: 10pt; font-family: "NSimSun", monospace }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+	</style>
+</head>
+<body lang="it-IT" link="#000080" vlink="#800000" dir="ltr"><pre class="western">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Quick Question&lt;/title&gt;
+&lt;style&gt;
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 80px;
+    }
+    #question { font-size: 22px; margin-bottom: 40px; }
+    button {
+        padding: 12px 24px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+    }
+    #noBtn { position: relative; }
+    #calendarSection, #whatsappSection { display: none; margin-top: 30px; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;question&quot;&gt;
+    Since your trip is nearly over, I was wondering… are you still up for a beer?
+&lt;/div&gt;
+
+&lt;button id=&quot;yesBtn&quot;&gt;Yes&lt;/button&gt;
+&lt;button id=&quot;noBtn&quot;&gt;No&lt;/button&gt;
+
+&lt;div id=&quot;calendarSection&quot;&gt;
+    &lt;p&gt;Select a date and time:&lt;/p&gt;
+    &lt;input type=&quot;date&quot; id=&quot;dateInput&quot;&gt;
+    &lt;input type=&quot;time&quot; id=&quot;timeInput&quot;&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;button id=&quot;confirmBtn&quot;&gt;Confirm&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;whatsappSection&quot;&gt;
+    &lt;p&gt;Great — now send me the details.&lt;/p&gt;
+    &lt;button id=&quot;whatsappBtn&quot;&gt;Open WhatsApp&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    const noBtn = document.getElementById(&quot;noBtn&quot;);
+    const yesBtn = document.getElementById(&quot;yesBtn&quot;);
+    const calendarSection = document.getElementById(&quot;calendarSection&quot;);
+    const whatsappSection = document.getElementById(&quot;whatsappSection&quot;);
+
+    const messages = [&quot;Wrong answer&quot;, &quot;Try again&quot;, &quot;Nice try&quot;, &quot;Not an option&quot;];
+
+    noBtn.addEventListener(&quot;mouseover&quot;, () =&gt; {
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        noBtn.textContent = messages[Math.floor(Math.random() * messages.length)];
+    });
+
+    yesBtn.addEventListener(&quot;click&quot;, () =&gt; {
+        calendarSection.style.display = &quot;block&quot;;
+    });
+
+    document.getElementById(&quot;confirmBtn&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+        whatsappSection.style.display = &quot;block&quot;;
+    });
+
+    document.getElementById(&quot;whatsappBtn&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+        const date = document.getElementById(&quot;dateInput&quot;).value;
+        const time = document.getElementById(&quot;timeInput&quot;).value;
+
+        const msg = encodeURIComponent(
+            `Hi Marta, here are the details: ${date} at ${time}.`
+        );
+
+        window.location.href = `https://wa.me/447754787699?text=${msg}`;
+    });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>
